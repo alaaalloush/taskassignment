@@ -3,11 +3,10 @@ package org.redischool.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "LANGUAGE , uniqueConstraints = {@UniqueConstraint(columnNames = {\"NAME\"})})")
+@Table(name = "LANGUAGE")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode(of = {"id"})
@@ -19,13 +18,9 @@ public class Language {
     @Column(name = "ID")
     private UUID id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(unique = true, nullable = false)
+    private LanguageNames languageNames;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "Language_Employee",
-            joinColumns = {@JoinColumn(name = "LANGUAGE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "EMPLOYEE_ID")})
-    private Set<Employee> employees;
 
 }

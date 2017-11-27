@@ -1,9 +1,17 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
 group 'org.redischool.management'
 version '1.0-SNAPSHOT'
-
-    dependencies {
-        compile 'org.springframework:spring-context:5.0.1.RELEASE'
-    }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -32,10 +40,8 @@ dependencies {
     compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
     compile('org.springframework.boot:spring-boot-starter-activemq')
 
-    runtime('mysql:mysql-connector-java')
+    runtime('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
     compileOnly('com.google.code.findbugs:annotations:3.0.1')
-
-    compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
