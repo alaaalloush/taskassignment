@@ -31,11 +31,11 @@ public class Assignment {
 //    @Column (name = "EMPLOYEE")
 //    private Employee employee;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+  /*  @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "Assignment_Generator",
             joinColumns = {@JoinColumn(name = "SCHEDULE_ID")},
             inverseJoinColumns = {@JoinColumn(name = "TASK_ID")})
-
+*/
 
 
 
